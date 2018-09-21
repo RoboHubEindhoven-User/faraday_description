@@ -1,0 +1,385 @@
+<robot
+  name="faraday_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0065302 -0.0023716 0.18684"
+        rpy="0 0 0" />
+      <mass
+        value="80" />
+      <inertia
+        ixx="0.070111"
+        ixy="0.0037189"
+        ixz="0.0031173"
+        iyy="0.11789"
+        iyz="-0.00044675"
+        izz="0.12485" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.9 0.9 0.9 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="front_lidar">
+    <inertial>
+      <origin
+        xyz="-0.00064881 3.9624E-06 -0.020287"
+        rpy="0 0 0" />
+      <mass
+        value="0.36783" />
+      <inertia
+        ixx="0.00010865"
+        ixy="3.8659E-08"
+        ixz="-1.6811E-07"
+        iyy="0.00011263"
+        iyz="2.7923E-08"
+        izz="3.9807E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/front_lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.9 0.6 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/front_lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_front_lidar"
+    type="fixed">
+    <origin
+      xyz="0.37 -0.01 0.096"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="back_lidar">
+    <inertial>
+      <origin
+        xyz="-0.00064881 3.9624E-06 -0.020287"
+        rpy="0 0 0" />
+      <mass
+        value="0.36783" />
+      <inertia
+        ixx="0.00010865"
+        ixy="3.8659E-08"
+        ixz="-1.6811E-07"
+        iyy="0.00011263"
+        iyz="2.7923E-08"
+        izz="3.9807E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/back_lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.9 0.6 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/back_lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_back_lidar"
+    type="fixed">
+    <origin
+      xyz="-0.373 0.003 0.096"
+      rpy="-1.5558E-16 4.9792E-17 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="front_left_wheel">
+    <inertial>
+      <origin
+        xyz="-6.9389E-18 0.045 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.5904" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/front_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/front_left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_front_left_wheel"
+    type="continuous">
+    <origin
+      xyz="0.1695 0.1435 0.075"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_left_wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="30"
+      velocity="7" />
+    <dynamics
+      damping="0.7"
+      friction="9.81" />
+  </joint>
+  <link
+    name="front_right_wheel">
+    <inertial>
+      <origin
+        xyz="0 -0.0449999999999999 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.59043128087983" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/front_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/front_right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_front_right_wheel"
+    type="continuous">
+    <origin
+      xyz="0.1695 -0.1505 0.075"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_right_wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="30"
+      velocity="7" />
+    <dynamics
+      damping="0.7"
+      friction="9.81" />
+  </joint>
+  <link
+    name="back_left_wheel">
+    <inertial>
+      <origin
+        xyz="0 0.045 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.59043128087983" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/back_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/back_left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_back_left_wheel"
+    type="continuous">
+    <origin
+      xyz="-0.1825 0.1435 0.075"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_left_wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="30"
+      velocity="7" />
+    <dynamics
+      damping="7"
+      friction="9.81" />
+  </joint>
+  <link
+    name="back_right_wheel">
+    <inertial>
+      <origin
+        xyz="0 -0.045 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.59043128087983" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/back_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://faraday_description/meshes/back_right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_back_right_wheel"
+    type="continuous">
+    <origin
+      xyz="-0.1805 -0.1505 0.075"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_right_wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="30"
+      velocity="7" />
+    <dynamics
+      damping="0.7"
+      friction="9.81" />
+  </joint>
+</robot>
